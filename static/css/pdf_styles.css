@@ -1,0 +1,53 @@
+/* pdf_styles.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff; /* White background for a clean look */
+}
+
+.container {
+    padding: 20px;
+}
+
+h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333; /* Dark color for headings */
+    border-bottom: 2px solid #007bff; /* Accent border */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #007bff; /* Accent color for subheadings */
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1em;
+    color: #333; /* Dark color for text */
+    line-height: 1.6; /* Improved readability */
+}
+
+.contact-info, .section {
+    margin-bottom: 20px;
+}
+
+.resume-template {
+    max-width: 800px;
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resume-template .contact-info p {
+    margin: 5px 0;
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Career Track App</h1>
+    <p class="lead">Track and manage your job applications efficiently.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('track') }}" role="button">Track Applications</a>
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('jobs') }}" role="button">Job Listings</a>
+    {% if current_user.is_authenticated %}
+        <a class="btn btn-info btn-lg" href="{{ url_for('community') }}" role="button">Community</a>
+    {% endif %}
+</div>
+<div class="contact-info text-center">
+    <p><i class="fas fa-envelope"></i> support@careerprep.com</p>
+    <p><i class="fas fa-phone"></i> +603-349-1019</p>
+    <div class="social-icons">
+        <a href="https://twitter.com/your_profile" target="_blank">
+            <i class="fab fa-twitter"></i> Twitter
+        </a>
+        <a href="https://facebook.com/your_profile" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://linkedin.com/in/your_profile" target="_blank">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+    </div>
+</div>
+{% endblock %}

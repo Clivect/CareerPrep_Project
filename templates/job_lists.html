@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Job Listings</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.query.label }}
+            {{ form.query(class="form-control") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    {% if job_listings %}
+    <h2 class="mt-4">Search Results</h2>
+    <ul class="list-group">
+        {% for job in job_listings %}
+        <li class="list-group-item">
+            <div class="placeholder-image">
+                <span>Company Logo Placeholder</span>
+            </div>
+            <h5>{{ job['title'] }}</h5>
+            <p>{{ job['company']['display_name'] }} - {{ job['location']['display_name'] }}</p>
+            <p><a href="{{ job['redirect_url'] }}" target="_blank">View Job</a></p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No job listings found.</p>
+    {% endif %}
+</div>
+{% endblock %}

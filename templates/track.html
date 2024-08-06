@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Track Your Applications</h1>
+
+    <!-- Form to add new application -->
+    <h3>Add New Application</h3>
+    <form method="POST" action="{{ url_for('track') }}">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.company.label(class="form-label") }}
+            {{ form.company(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.position.label(class="form-label") }}
+            {{ form.position(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.status.label(class="form-label") }}
+            {{ form.status(class="form-control") }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Application</button>
+    </form>
+
+    <!-- Display the list of applications -->
+    {% if applications %}
+    <ul class="list-group mt-4">
+        {% for application in applications %}
+        <li class="list-group-item">
+            <h5>{{ application.position }}</h5>
+            <p>Company: {{ application.company }}</p>
+            <p>Status: {{ application.status }}</p>
+            <p>Applied on: {{ application.date_applied.strftime('%d %b %Y') }}</p>
+
+            <!-- Delete button -->
+            <form method="POST" action="{{ url_for('delete_application', application_id=application.id) }}" style="display:inline;">
+                {{ form.hidden_tag() }}
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="mt-4">No applications found.</p>
+    {% endif %}
+</div>
+{% endblock %}

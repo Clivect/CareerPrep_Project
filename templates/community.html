@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Community{% endblock %}
+
+{% block content %}
+<h2>Community</h2>
+<form method="POST">
+    <div class="form-group">
+        <textarea class="form-control" name="content" rows="3" placeholder="Type something..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Post</button>
+</form>
+<div class="mt-4">
+    {% for message in messages %}
+        <div class="message">
+            <p><strong>{{ message.username }}</strong> <small class="text-muted">{{ message.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small></p>
+            <p>{{ message.content }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
